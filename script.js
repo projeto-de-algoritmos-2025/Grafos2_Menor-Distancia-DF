@@ -359,5 +359,146 @@ Sobradinho I - 75
             }
         }
     });
-    //Continua aqui
+        const selectOrigem = document.getElementById('origem');
+    const selectDestino = document.getElementById('destino');
+    const calcularBtn = document.getElementById('calcular');
+    const caminhoTextoElem = document.getElementById('caminho-texto');
+    const distanciaTotalElem = document.getElementById('distancia-total');
+
+    const sortedRegioes = Array.from(regioes).sort((a, b) => a.localeCompare(b));
+
+    sortedRegioes.forEach(regiao => {
+        const optionOrigem = document.createElement('option');
+        optionOrigem.value = regiao;
+        optionOrigem.textContent = regiao;
+        selectOrigem.appendChild(optionOrigem);
+
+        const optionDestino = document.createElement('option');
+        optionDestino.value = regiao;
+        optionDestino.textContent = regiao;
+        selectDestino.appendChild(optionDestino);
+    });
+
+    function dijkstra(graph, startNode, endNode) {
+        const distances = {};
+        const prev = {};
+        const pq = new PriorityQueue();
+        let path = [];
+        let smallest;
+
+        for (let vertex in graph) {
+            if (vertex === startNode) {
+                distances[vertex] = 0;
+                pq.enqueue(vertex, 0);
+            } else {
+                distances[vertex] = Infinity;
+                pq.enqueue(vertex, Infinity);
+            }
+            prev[vertex] = null;
+        }
+
+        while (!pq.isEmpty()) {
+            smallest = pq.dequeue().element;
+
+            if (smallest === endNode) {
+                while (prev[smallest]) {
+                    path.push(smallest);
+                    smallest = prev[smallest];
+                }
+                break;
+            }
+
+            if (smallest || distances[smallest] !== Infinity) {
+                for (let neighbor in graph[smallest]) {
+                    let alt = distances[smallest] + graph[smallest][neighbor];
+                    if (alt < distances[neighbor]) {
+                        distances[neighbor] = alt;
+                        prev[neighbor] = smallest;
+                        pq.enqueue(neighbor, alt);
+                    }
+                }
+            }
+        }
+        path = path.concat(smallest === startNode ? startNode : smallest).reverse();
+
+        if (distances[endNode] === Infinity) {
+            return { path: [], distance: Infinity };
+        }
+        return { path, distance: distances[endNode] };
+    }
+
+    class PriorityQueue {
+        constructor() {
+            this.collection = [];
+        }
+        enqueue(element, priority) {
+            const queueElement = { element, priority };
+            if (this.isEmpty()) {
+                this.collection.push(queueElement);
+            } else {
+                let added = false;
+                for (let i = 0; i < this.collection.length; i++) {
+                    if (queueElement.priority < this.collection[i].priority) {
+                        this.collection.splice(i, 0, queueElement);
+                        added = true;
+                        break;
+                    }
+                }
+                if (!added) {
+                    this.collection.push(queueElement);
+                }
+            }
+        }
+        dequeue() {
+            return this.collection.shift();
+        }
+        isEmpty() {
+            return this.collection.length === 0;
+        }
+    }
+
+    calcularBtn.addEventListener('click', () => {
+        const origem = selectOrigem.value;
+        const destino = selectDestino.value;
+
+        if (origem === destino) {
+            caminhoTextoElem.textContent = "Origem e destino são os mesmos.";
+            distanciaTotalElem.textContent = "0 km";
+            return;
+        }
+
+        const resultadoDijkstra = dijkstra(graph, origem, destino);
+        const caminhoListaElem = document.getElementById('caminho-lista');
+        caminhoListaElem.innerHTML = '';
+
+        if (resultadoDijkstra.distance === Infinity) {
+            const liMsg = document.createElement('li');
+            liMsg.classList.add('mensagem');
+            liMsg.textContent = `Não foi possível encontrar um caminho de ${origem} para ${destino}.`;
+            caminhoListaElem.appendChild(liMsg);
+            distanciaTotalElem.textContent = "N/A";
+        } else {
+            if (resultadoDijkstra.path.length === 1) {
+                 const li = document.createElement('li');
+                 li.textContent = `${resultadoDijkstra.path[0]}`;
+                 caminhoListaElem.appendChild(li);
+            } else {
+                for (let i = 0; i < resultadoDijkstra.path.length - 1; i++) {
+                    const de = resultadoDijkstra.path[i];
+                    const para = resultadoDijkstra.path[i+1];
+                    const dist = graph[de][para];
+
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        ${i === 0 ? '<strong></strong> ' : ''}${de}
+                        &rarr; ${para}
+                        <span class="trecho-distancia">(${dist.toFixed(1).replace('.',',')} km)</span>
+                    `;
+                    caminhoListaElem.appendChild(li);
+                }
+            }
+
+            distanciaTotalElem.textContent = `${resultadoDijkstra.distance.toFixed(1).replace('.',',')} km`;
+        }
+    });
 });
