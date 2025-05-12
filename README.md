@@ -24,7 +24,7 @@ A solução foi implementada em uma aplicação web interativa, onde o usuário 
 <center>
 
 <p>
-  <img src="grafo_brasilia.svg" width="300" alt="Grafo de Brasília">
+  <img src="grafo_brasilia.svg" alt="Grafo de Brasília">
   <br>
   <sub>Grafo das Regiões Administrativas de Brasília</sub>
 </p>
@@ -32,7 +32,7 @@ A solução foi implementada em uma aplicação web interativa, onde o usuário 
 ---
 
 <p>
-  <img src="assets/site.png" width="300" alt="Site Funcionando">
+  <img src="assets/site.png" alt="Site Funcionando">
   <br>
   <sub>Captura de tela da aplicação web, partindo do Gama até Vicente Pires.</sub>
 </p>
@@ -40,7 +40,7 @@ A solução foi implementada em uma aplicação web interativa, onde o usuário 
 ---
 
 <p>
-  <img src="assets/fotos.png" width="300" alt="Imagens do site">
+  <img src="assets/fotos.png" alt="Imagens do site">
   <br>
   <sub>Captura de tela das imagens disponibilizadas na aplicação web.</sub>
 </p>
