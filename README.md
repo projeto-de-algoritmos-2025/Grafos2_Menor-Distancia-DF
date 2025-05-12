@@ -18,6 +18,7 @@ O grafo foi construído manualmente, tendo como vértices as Regiões Administra
 
 A solução foi implementada em uma aplicação web interativa, onde o usuário informa a região de origem e a de destino. O sistema, então, aplica o algoritmo de Dijkstra para calcular o menor caminho e retorna a sequência de regiões a serem percorridas, as distâncias entre elas e a distância total do trajeto em quilômetros.
 
+Acesse: [Menor Caminho DF](https://projeto-de-algoritmos-2025.github.io/Grafos2_Menor-Distancia-DF/)
 
 ## Screenshots
 
@@ -80,7 +81,7 @@ git clone https://github.com/projeto-de-algoritmos-2025/Grafos2_Menor-Distancia-
 ```
 
 Para acessar o projeto online, acesse o site:
-[site](site)
+[Menor Caminho DF](https://projeto-de-algoritmos-2025.github.io/Grafos2_Menor-Distancia-DF/)
 
 ---
 
