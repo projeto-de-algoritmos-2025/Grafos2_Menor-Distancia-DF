@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Rotas de Brasília</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Menor Rota em Brasília</h1>
+        <p class="github-link">
+            Desenvolvido por: <a href="https://github.com/rafgpereira" target="_blank" rel="noopener noreferrer">@rafgpereira</a> e <a href="https://github.com/jlucasiqueira" target="_blank" rel="noopener noreferrer">@jlucasiqueira</a>
+        </p>
+        <div class="controls">
+            <div class="select-group">
+                <label for="origem">Região de Origem:</label>
+                <select id="origem"></select>
+            </div>
+            <div class="select-group">
+                <label for="destino">Região de Destino:</label>
+                <select id="destino"></select>
+            </div>
+            <button id="calcular">Calcular Rota</button>
+        </div>
+
+
+        <div id="resultado">
+            <h2>Menor Caminho:</h2>
+            <ol id="caminho-lista"></ol>
+            <div class="distancia-final">
+                <h3>Distância Total:</h3>
+                <p id="distancia-total"></p>
+            </div>
+        </div>
+        <div class="visualizacoes-container">
+            <div class="imagem-item">
+                <h3>Mapa Base de Brasília</h3>
+               <a href="mapa_brasilia.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+
+                <img src="mapa_brasilia.jpg" alt="Mapa das Regiões Administrativas de Brasília">
+                <p class="caption">Representação visual do mapa utilizado como base. Clique para expandir.</p>
+            </div>
+            <div class="imagem-item">
+                <h3>Grafo das Conexões</h3>
+                <a href="grafo_brasilia.svg" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+
+                <img src="grafo_brasilia.svg" alt="Grafo das conexões entre as Regiões Administrativas">
+                <p class="caption">Visualização do grafo gerado com as conexões. Clique para expandir.</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
