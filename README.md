@@ -54,7 +54,7 @@ Acesse: [Menor Caminho DF](https://projeto-de-algoritmos-2025.github.io/Grafos2_
 
 Neste vídeo, apresentamos o trabalho desenvolvido, abordando os principais pontos desenvolvidos ao longo do projeto.
 
-[Assista no Youtube]()
+[Assista no Youtube](https://youtu.be/bvvu0p0dONs)
 
 ---
 
