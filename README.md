@@ -23,7 +23,7 @@ Acesse: [Menor Caminho DF](https://projeto-de-algoritmos-2025.github.io/Grafos2_
 ## Screenshots
 
 
-![Grafo](assets/grafo_brasilia.svg)
+![Grafo](grafo_brasilia.svg)
 
 Grafo que representa as regiões administrativas de Brasília
 
