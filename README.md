@@ -22,29 +22,24 @@ Acesse: [Menor Caminho DF](https://projeto-de-algoritmos-2025.github.io/Grafos2_
 
 ## Screenshots
 
-<center>
 
-<p>
-  <img src="grafo_brasilia.svg" alt="Grafo de Brasília">
-  <br>
-  <sub>Grafo das Regiões Administrativas de Brasília</sub>
-</p>
+![Grafo](assets/grafo_brasilia.svg)
+
+Grafo que representa as regiões administrativas de Brasília
+
 
 ---
 
-<p>
-  <img src="assets/site.png" alt="Site Funcionando">
-  <br>
-  <sub>Captura de tela da aplicação web, partindo do Gama até Vicente Pires.</sub>
-</p>
+![Site](assets/site.png)
+
+Captura de tela da aplicação web mostrando as funcionalidades
+
 
 ---
 
-<p>
-  <img src="assets/fotos.png" alt="Imagens do site">
-  <br>
-  <sub>Captura de tela das imagens disponibilizadas na aplicação web.</sub>
-</p>
+![Fotos](assets/fotos.png)
+
+Captura de tela das imagens inseridas na aplicação web
 
 ---
 
